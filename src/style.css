@@ -1,0 +1,156 @@
+body {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: #484848;
+}
+.screen-wrapper {
+    max-width: 1200px;
+    margin: 30px auto;
+}
+.main-wrapper {
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.d-flex {
+    display: flex;
+}
+.align-items-center {
+    align-items: center;
+}
+.mr-20 {
+    margin-right: 20px;
+}
+
+/* Start: Header Style */
+.header .navbar-nav {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+}
+.header .navbar-nav .nav-item {
+    margin-right: 30px;
+}
+.header .navbar-nav .nav-link{
+    color: #000;
+    text-decoration: none;
+}
+.header .navbar-nav .nav-link.active {
+    color: #000ed1;
+    text-decoration: underline;
+}
+/* End: Header Style */
+
+/* Start: Section style */
+.page-title {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 24px;
+    color: #000;
+    padding: 30px 0;
+}
+.page-title h4 {
+    margin: 0;
+}
+.section {
+    padding: 30px 0;
+}
+.section-title {
+    padding: 8px 0;
+}
+.section-body {
+    padding: 16px 0;
+}
+.section-title .caption {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+.container {
+    padding: 0 30px;
+}
+/* End: Section style */
+
+/* Start: Table style */
+.table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+.table tr td, .table tr th {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+.table thead tr th{
+    font-weight: bold;
+    background-color: #f1f1f1;
+    text-align: left;
+}
+/* End: Table style */
+
+/* Start: Button Style */
+.btn {
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-primary {
+    color: #fff;
+    border-color: #000ed1;
+    background-color: #000ed1;
+}
+/* End: Button Style */
+
+/* Start: Form Style */
+.form-group {
+    margin-bottom: 16px;
+}
+.form-group label {
+    display: inline-block;
+    margin-bottom: 8px;
+}
+.form-group label span, .error-msg {
+    color: red;
+}
+.error-msg {
+    font-size: 12px;
+    display: inline-block;
+    margin: 8px 0;
+}
+.password-hint {
+    list-style-type: none;
+    padding: 0;
+    font-size: 12px;
+    margin: 0;
+}
+.form-control {
+    width: 300px;
+    display: block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+textarea {
+    display: block;
+    width: 300px;
+}
+select {
+    width: 300px;
+    display: block;
+    line-height: 1.5;
+    padding: 8px 12px;
+    background: #fff;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+/* End: Form Style */
