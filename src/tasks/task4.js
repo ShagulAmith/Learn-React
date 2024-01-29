@@ -11,27 +11,31 @@ export default class task4 extends React.Component {
     }
 
     handleCity = (e) => {
-        this.setState({city: e.target.value});
+        this.setState({city : e.target.value});
     }
 
-    handleButtonClick = () => {
-        fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${this.state.city}`,{
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': 'ea1736c136msh0f5c187e704eedbp15d852jsn9c8eb45d2ffd',
-                'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+    handleButtonClick = async() => {
+        const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${this.state.city}`;
+        try {
+            const response = await fetch(url,{
+                method : 'GET',
+                headers : {
+                    'Content-Type': 'application/json',
+                    'X-RapidAPI-Key': 'ea1736c136msh0f5c187e704eedbp15d852jsn9c8eb45d2ffd',
+		            'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+                }
+            });
+            if(!response.ok) {
+                throw new Error("Http Error");
             }
-        })
-        .then(res => {
-            if(!res.ok) {
-                throw new Error('HTTP error! Status: ${res.status}');
-            }
-            return res.json();
-        })
-        .then(data => this.setState({ weatherData: data }))
-        .catch(error => console.error('Error fetching weather data:', error));
+            const data = await response.json();
+            this.setState({weatherData : data});
+        }
+        catch (error) {
+            console.log("API Fetch Error",error);
+        }
     }
-
+    
     render() {
         const {city, weatherData} = this.state;
         return (
@@ -64,13 +68,13 @@ export default class task4 extends React.Component {
                                     class="btn btn-primary"
                                     onClick={this.handleButtonClick}
                                 >Submit</button>
-
+                                {/* Printing Weather Api information */}
                                 {weatherData && (
                                     <>
                                     <h3>The Weather Report:</h3>
                                     <p>The weather condition for <strong>{city}</strong></p>
-                                    <p className="d-flex align-items-center">Temperature : <img width={24} height={24} src={weatherData.current.condition.icon} /> {weatherData.current.temp_c}°C</p>
-                                    <p>Condition: {weatherData.current.condition.text}</p>
+                                    <p className="d-flex align-items-center">Temperature : <img width={24} height={24} src={weatherData.current.condition.icon} alt="" /> <strong>{weatherData.current.temp_c}°C</strong></p>
+                                    <p>Condition: <strong>{weatherData.current.condition.text}</strong></p>
                                     </>
                                 )}
                             </div>

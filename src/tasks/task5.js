@@ -16,10 +16,6 @@ export default class task5 extends React.Component {
         this.setState({formValues});
     }
 
-    componentDidUpdate(prevState) {
-        console.log(this.state.formValues)
-    }
-
     render() {
         return (
             <div className="screen-wrapper">
@@ -37,7 +33,6 @@ export default class task5 extends React.Component {
                                 <LoginForm 
                                     getLoginCredentials = {this.handleLoginCredentials}
                                 />
-                                <p>{this.state.formValues.email}</p>
                             </div>
                         </div>
                     </div>

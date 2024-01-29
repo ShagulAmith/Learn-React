@@ -32,6 +32,7 @@ export default class Task3 extends React.Component {
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        {/* Using map method to print the data as table format */}
                                         {this.userInfo.map((user, index) => (
                                             <tr key={index}>
                                                 <td>{user.name}</td>

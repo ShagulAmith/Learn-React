@@ -2,18 +2,10 @@ import React from "react";
 import BaseTable from "../components/table";
 
 export default class Dashboard extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    /* Handle Logout */
     handleLogout = () => {
-        window.localStorage.clear();
+        localStorage.clear();
         window.location.href = "/task5";
-    }
-    componentDidMount(){
-        alert(localStorage.getItem("loginStatus")); 
-        if(localStorage.getItem("loginStatus") !== "1") {
-            window.location.href = "/task5";
-        }
     }
     render() {
         return (

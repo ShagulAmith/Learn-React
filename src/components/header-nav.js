@@ -23,6 +23,15 @@ export default class HeaderNav extends React.Component {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/task5">Task5</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/task6">Task6</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/task7">Task7</NavLink>
+                            </li>
+                            {/* <li className="nav-item">
+                                <NavLink className="nav-link" to="/life-cycle">LifeCycle</NavLink>
+                            </li> */}
                         </ul>
                     </nav>
                 </div>
