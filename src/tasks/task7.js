@@ -1,5 +1,7 @@
 import React,{Component} from "react";
 import {connect} from "react-redux";
+import jsonFile from "./todos.json";
+import HeaderNav from "../components/header-nav";
 
 class Task7 extends Component {
     constructor(props) {
@@ -10,10 +12,7 @@ class Task7 extends Component {
     }
 
     handleJsonFile = async() => {
-        // const url = `./products.json`;
         try {
-            // const response = await fetch(`https://jsonplaceholder.typicode.com/todos`);
-            // const response = await fetch(`./todos.json`);
             const response = await fetch(`https://jsonplaceholder.typicode.com/posts`);
             if(!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`)
@@ -29,8 +28,13 @@ class Task7 extends Component {
         }
     }
 
+    handleLocalJsonFile = () => {
+        this.props.handleJsonData({type: "JSON_DATA", payload:jsonFile});
+    }
+
     componentDidMount() {
-        this.handleJsonFile();
+        // this.handleJsonFile();
+        this.handleLocalJsonFile();
     }
 
     calculateFileSize = () => {
@@ -43,11 +47,21 @@ class Task7 extends Component {
 
     render () {
         return (
-            <>
-                <h1>Redux</h1>
-                <p>The Json File Size is : <strong className="text-primary">{this.calculateFileSize()}</strong></p>
-                {/* <p>{this.props.name}</p> */}
-            </>
+            <div className="screen-wrapper">
+                <HeaderNav />
+                <div className="main-wrapper">
+                    <div className="section">
+                        <div className="container">
+                            <div className="section-title">
+                                <h6 className="caption">JSON File Size Check</h6>
+                            </div>
+                            <div className="section-body">
+                            <p>The Json File Size is : <strong className="text-primary">{this.calculateFileSize()}</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
 }
@@ -56,7 +70,7 @@ const mapStateToProps = (state) => {
     console.log("state",state);
     return {
         jsonDataList : state.jsonSizeReducer.jsonData,
-        // name : state.formReducers.inputText,
+        name : state.formReducer.inputText,
     }
 }
 

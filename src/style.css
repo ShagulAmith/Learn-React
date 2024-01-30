@@ -28,11 +28,18 @@ body {
 }
 
 /* Start: Header Style */
+.header {
+    margin-bottom: 32px;
+}
 .header .navbar-nav {
     display: flex;
     align-items: center;
     list-style-type: none;
     padding: 0;
+}
+.header .navbar {
+    display: flex;
+    align-items: center;
 }
 .header .navbar-nav .nav-item {
     margin-right: 30px;

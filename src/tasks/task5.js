@@ -19,9 +19,8 @@ export default class task5 extends React.Component {
     render() {
         return (
             <div className="screen-wrapper">
-                <HeaderNav />
                 <div className="page-title">
-                    <h4>Task5</h4>
+                    <h4>Login Page:</h4>
                 </div>
                 <div className="main-wrapper">
                     <div className="section">

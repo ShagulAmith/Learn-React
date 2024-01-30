@@ -20,8 +20,16 @@ function App() {
         <Route path="/task3" element={<Task3 />} />
         <Route path="/task4" element={<Task4 />} />
         <Route path="/task5" element={<Task5 />} />
-        <Route path="/task6" element={<Task6 />} />
-        <Route path="/task7" element={<Task7 />} />
+        <Route path="/task6" element={
+          <PrivateRouter>
+            <Task6 />
+          </PrivateRouter>
+        } />
+        <Route path="/task7" element={
+          <PrivateRouter>
+            <Task7 />
+          </PrivateRouter>
+        } />
         <Route path="/life-cycle" element={<LifeCycle />} />
         <Route 
           path="/dashboard" 

@@ -1,6 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 
-export default class LoginForm extends React.Component {
+class LoginForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,8 +28,8 @@ export default class LoginForm extends React.Component {
             error["email"] = "Please Enter Valid Email ID";
         }
         if(!formValues["password"] || !formValues["password"].match(passValidate)) {
-            error["password"] = "Please Enter Valid Password";
             showError = false;
+            error["password"] = "Please Enter Valid Password";
         }
         this.setState({error});
         return showError;
@@ -37,8 +38,9 @@ export default class LoginForm extends React.Component {
     handleLoginPage = (e) => {
         e.preventDefault();
         if(this.handleLogin()){
-            console.log("true")
-            localStorage.setItem('loginStatus','true')
+            // console.log("true");
+            this.props.handleLoginStore({type : "LOGIN_DATA" , payload : this.state.formValues});
+            localStorage.setItem('loginStatus','true');
             window.location.href="/dashboard";
         }
     }
@@ -72,7 +74,7 @@ render() {
                         value={formValues && formValues.password}
                         onChange={this.handleFormValues}
                     />
-                    {showErrorMsg &&
+                    {error.password &&
                         (
                             <>
                                 <span className="error-msg">{error.password}</span>
@@ -133,3 +135,10 @@ render() {
     )
 }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleLoginStore : dispatch,
+    }
+}
+export default connect(null,mapDispatchToProps) (LoginForm);

@@ -1,8 +1,11 @@
 import { combineReducers } from "redux";
 import formReducer from "./formReducer.js";
 import jsonSizeReducer from "./jsonSizeReducer.js";
+import loginReducer from "./loginReducer.js";
 
-export default combineReducers({
+const rootReducer = combineReducers({
     formReducer,
-    jsonSizeReducer
+    jsonSizeReducer,
+    loginReducer
 })
+export default rootReducer;

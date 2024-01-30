@@ -55,7 +55,6 @@ class Task6 extends Component {
                                     class="btn btn-primary"
                                     onClick={this.handleFormSubmit}
                                 >Submit</button>
-                                {this.props.inputVal}
                                 {this.props.userList.map((formVal) => {
                                     return (
                                         <ul>
